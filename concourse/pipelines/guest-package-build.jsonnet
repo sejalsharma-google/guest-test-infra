@@ -374,7 +374,7 @@ local build_guest_agent = buildpackagejob {
   local tl = self,
 
   uploads: [],
-  builds: ['deb10', 'deb11-arm64', 'el7', 'el8', 'el8-arm64', 'el9', 'el9-arm64', 'goo'],
+  builds: ['deb10', 'deb11-arm64', 'el7', 'el8', 'el8-arm64', 'el9', 'el9-arm64', 'goo', 'cos'],
   // The guest agent has additional testing steps to build derivative images then run CIT against them.
   extra_tasks: [
     {
