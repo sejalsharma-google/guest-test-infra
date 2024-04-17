@@ -478,7 +478,6 @@ local build_guest_agent = buildpackagejob {
           // sejalsharma: add an additional build package image task for COS.
           buildpackageimagetaskcos {
             image_name: 'cos-113',
-            machine_type: 't2a-standard-2',
             worker_image: 'projects/compute-image-tools/global/images/family/debian-11-worker-arm64',
           },
         ],
