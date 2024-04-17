@@ -476,7 +476,7 @@ local build_guest_agent = buildpackagejob {
             worker_image: 'projects/compute-image-tools/global/images/family/debian-11-worker-arm64',
           },
           // sejalsharma: add an additional build package image task for COS.
-          buildpackageimagetask {
+          buildpackageimagetaskcos {
             image_name: 'cos-113',
             dest_image: 'rhel-9-arm64-((.:build-id))',
             gcs_package_path: 'gs://gcp-guest-package-uploads/%s/google-guest-agent-((.:package-version))-g1.el9.aarch64.rpm' % [tl.package],
