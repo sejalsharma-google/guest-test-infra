@@ -478,6 +478,7 @@ local build_guest_agent = buildpackagejob {
           // sejalsharma: add an additional build package image task for COS.
           buildpackageimagetaskcos {
             image_name: 'cos-113',
+            source_image: 'sejalsharma-cos-113',
           },
         ],
       },
