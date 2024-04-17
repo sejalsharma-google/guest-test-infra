@@ -374,6 +374,7 @@ local build_guest_agent = buildpackagejob {
   local tl = self,
 
   uploads: [],
+  // sejalsharma: what do these builds do?
   builds: ['deb10', 'deb11-arm64', 'el7', 'el8', 'el8-arm64', 'el9', 'el9-arm64', 'goo'],
   // The guest agent has additional testing steps to build derivative images then run CIT against them.
   extra_tasks: [
@@ -466,6 +467,15 @@ local build_guest_agent = buildpackagejob {
             dest_image: 'rhel-9-((.:build-id))',
             gcs_package_path: 'gs://gcp-guest-package-uploads/%s/google-guest-agent-((.:package-version))-g1.el9.x86_64.rpm' % [tl.package],
           },
+          buildpackageimagetask {
+            image_name: 'rhel-9-arm64',
+            source_image: 'projects/rhel-cloud/global/images/family/rhel-9-arm64',
+            dest_image: 'rhel-9-arm64-((.:build-id))',
+            gcs_package_path: 'gs://gcp-guest-package-uploads/%s/google-guest-agent-((.:package-version))-g1.el9.aarch64.rpm' % [tl.package],
+            machine_type: 't2a-standard-2',
+            worker_image: 'projects/compute-image-tools/global/images/family/debian-11-worker-arm64',
+          },
+          // sejalsharma: add an additional build package image task for COS.
           buildpackageimagetask {
             image_name: 'rhel-9-arm64',
             source_image: 'projects/rhel-cloud/global/images/family/rhel-9-arm64',
