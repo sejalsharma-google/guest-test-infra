@@ -477,7 +477,7 @@ local build_guest_agent = buildpackagejob {
           },
           // sejalsharma: add an additional build package image task for COS.
           buildpackageimagetask {
-            image_name: 'rhel-9-arm64',
+            image_name: 'cos-113',
             source_image: 'projects/rhel-cloud/global/images/family/rhel-9-arm64',
             dest_image: 'rhel-9-arm64-((.:build-id))',
             gcs_package_path: 'gs://gcp-guest-package-uploads/%s/google-guest-agent-((.:package-version))-g1.el9.aarch64.rpm' % [tl.package],
