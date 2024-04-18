@@ -479,7 +479,7 @@ local build_guest_agent = buildpackagejob {
           buildpackageimagetaskcos {
             image_name: 'cos-113',
             source_image: 'sejalsharma-cos-113',
-            // sejalsharma: is this how to reference the package version?
+            // sejalsharma: is this how to reference the package version? Assuming the package version is YYMMDD.NN format...
             package_version: ((.:package-version))
           },
         ],
