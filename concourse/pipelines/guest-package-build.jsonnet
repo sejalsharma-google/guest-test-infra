@@ -504,7 +504,7 @@ local build_guest_agent = buildpackagejob {
                   '-project=gcp-guest',
                   '-zone=us-central1-a',
                   '-test_projects=compute-image-test-pool-002,compute-image-test-pool-003,compute-image-test-pool-004,compute-image-test-pool-005',
-                  // sejalsharma: Add projects/cloud-kernel-build/global/images/[dest image name] for COS at the end of the -images line.
+                  // sejalsharma: Do we add projects/cloud-kernel-build/... here too- what is registry for?
                   '-images=projects/gcp-guest/global/images/debian-10-((.:build-id)),projects/gcp-guest/global/images/debian-11-((.:build-id)),projects/gcp-guest/global/images/debian-12-((.:build-id)),projects/gcp-guest/global/images/centos-7-((.:build-id)),projects/gcp-guest/global/images/rhel-7-((.:build-id)),projects/gcp-guest/global/images/rhel-8-((.:build-id)),projects/gcp-guest/global/images/rhel-9-((.:build-id))',
                   '-exclude=(image)|(livemigrate)|(suspendresume)|(disk)|(security)|(oslogin)|(storageperf)|(networkperf)|(shapevalidation)|(hotattach)|(licensevalidation)',
                 ],
@@ -526,6 +526,7 @@ local build_guest_agent = buildpackagejob {
                   '-project=gcp-guest',
                   '-zone=us-central1-a',
                   '-test_projects=compute-image-test-pool-002,compute-image-test-pool-003,compute-image-test-pool-004,compute-image-test-pool-005',
+                  // sejalsharma: Add projects/cloud-kernel-build/global/images/[dest image name] for COS at the end of the -images line.
                   '-images=projects/gcp-guest/global/images/debian-11-arm64-((.:build-id)),projects/gcp-guest/global/images/debian-12-arm64-((.:build-id)),projects/gcp-guest/global/images/rocky-linux-8-optimized-gcp-arm64-((.:build-id)),projects/gcp-guest/global/images/rhel-9-arm64-((.:build-id))',
                   '-exclude=(image)|(suspendresume)|(livemigrate)|(disk)|(security)|(oslogin)|(storageperf)|(networkperf)|(shapevalidation)|(hotattach)|(licensevalidation)',
                 ],
