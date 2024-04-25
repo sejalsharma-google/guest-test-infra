@@ -370,6 +370,42 @@ local buildpackageimagetask = {
   },
 };
 
+// sejalsharma: task which builds a derivative OS image with a specific package added, for use in tests
+local buildpackageimagetaskcos = {
+  local tl = self,
+
+  image_name:: error 'must set image_name in buildpackageimagetask',
+  source_image:: error 'must set source_image in buildpackageimagetask',
+  dest_image:: error 'must set dest_image in buildpackageimagetask',
+  gcs_package_path:: error 'must set gcs_package_path in buildpackageimagetask',
+  machine_type:: 'e2-medium',
+  worker_image:: 'projects/compute-image-tools/global/images/family/debian-11-worker',
+
+  // Start of output.
+  task: 'build-derivative-%s-image' % tl.image_name,
+  config: {
+    platform: 'linux',
+    image_resource: {
+      type: 'registry-image',
+      source: { repository: 'gcr.io/compute-image-tools/daisy' },
+    },
+    inputs: [{ name: 'compute-image-tools' }],
+    run: {
+      path: '/daisy',
+      args: [
+        '-project=gcp-guest',
+        '-zone=us-central1-a',
+        '-var:source_image=' + tl.source_image,
+        '-var:gcs_package_path=' + tl.gcs_package_path,
+        '-var:dest_image=' + tl.dest_image,
+        '-var:machine_type=' + tl.machine_type,
+        '-var:worker_image=' + tl.worker_image,
+        './compute-image-tools/daisy_workflows/image_build/install_package/install_package.wf.json',
+      ],
+    },
+  },
+};
+
 local build_guest_agent = buildpackagejob {
   local tl = self,
 
