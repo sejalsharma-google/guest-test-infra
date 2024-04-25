@@ -370,14 +370,13 @@ local buildpackageimagetask = {
   },
 };
 
-// sejalsharma: task which builds a derivative OS image with a specific package added, for use in tests
+// sejalsharma: COS specific task which builds a derivative OS image with a specific package added, for use in tests
 local buildpackageimagetaskcos = {
   local tl = self,
 
   image_name:: error 'must set image_name in buildpackageimagetask',
   source_image:: error 'must set source_image in buildpackageimagetask',
   dest_image:: error 'must set dest_image in buildpackageimagetask',
-  gcs_package_path:: error 'must set gcs_package_path in buildpackageimagetask',
   machine_type:: 'e2-medium',
   worker_image:: 'projects/compute-image-tools/global/images/family/debian-11-worker',
 
