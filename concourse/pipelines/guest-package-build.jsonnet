@@ -377,6 +377,8 @@ local buildpackageimagetaskcos = {
   image_name:: error 'must set image_name in buildpackageimagetask',
   source_image:: error 'must set source_image in buildpackageimagetask',
   dest_image:: error 'must set dest_image in buildpackageimagetask',
+  package_version:: error 'must set dest_image in buildpackageimagetask',
+  cos_branch:: error 'must set dest_image in buildpackageimagetask',
   machine_type:: 'e2-medium',
   worker_image:: 'projects/compute-image-tools/global/images/family/debian-11-worker',
 
@@ -396,6 +398,8 @@ local buildpackageimagetaskcos = {
         '-zone=us-central1-a',
         '-var:source_image=' + tl.source_image,
         '-var:dest_image=' + tl.dest_image,
+        '-var:package_version=' + tl.package_version,
+        '-var:cos_branch=' + tl.cos_branch,
         '-var:machine_type=' + tl.machine_type,
         '-var:worker_image=' + tl.worker_image,
         './compute-image-tools/daisy_workflows/image_build/install_package/install_package_cos.wf.json',
