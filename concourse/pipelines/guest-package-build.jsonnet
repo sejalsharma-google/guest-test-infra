@@ -159,6 +159,7 @@ local base_buildpackagejob = {
   ] + tl.extra_tasks + tl.extended_tasks,
 };
 
+//sejalsharma: what does this function do? Is it run for every distro or?
 local buildpackagejob = base_buildpackagejob {
   local tl = self,
 
