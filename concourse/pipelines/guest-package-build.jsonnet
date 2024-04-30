@@ -376,11 +376,11 @@ local buildpackageimagetask = {
 local buildpackageimagetaskcos = {
   local tl = self,
 
-  image_name:: error 'must set image_name in buildpackageimagetask',
-  source_image:: error 'must set source_image in buildpackageimagetask',
-  dest_image:: error 'must set dest_image in buildpackageimagetask',
-  package_version:: error 'must set dest_image in buildpackageimagetask',
-  cos_branch:: error 'must set dest_image in buildpackageimagetask',
+  image_name:: error 'must set image_name in buildpackageimagetaskcos',
+  source_image:: error 'must set source_image in buildpackageimagetaskcos',
+  dest_image:: error 'must set dest_image in buildpackageimagetaskcos',
+  package_version:: error 'must set dest_image in buildpackageimagetaskcos',
+  cos_branch:: error 'must set dest_image in buildpackageimagetaskcos',
   machine_type:: 'e2-medium',
   worker_image:: 'projects/compute-image-tools/global/images/family/debian-11-worker',
 
