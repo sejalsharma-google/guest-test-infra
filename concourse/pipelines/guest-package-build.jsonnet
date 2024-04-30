@@ -122,7 +122,7 @@ local base_buildpackagejob = {
     },
     { load_var: 'package-version', file: 'package-version/version' },
     // Invoke daisy build workflows for all specified builds.
-    //sejalsharma: what does this do?
+    //sejalsharma: what does this do? IIUC it generates a deb file for package. What is the deb used for? Does COS need one? And is it run for every distro?
     {
       in_parallel: {
         steps: [
